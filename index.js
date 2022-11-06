@@ -57,6 +57,8 @@ function addManager(){
         },
     ] ).then((data) => {
         const manager= new Manager(data.name, data.id, data.email, data.office)
+        newEmployees.push(manager)
+        console.log(newEmployees)
         console.log("manager has been created ")
         console.log(manager)
         createNew()
@@ -89,6 +91,7 @@ function addEngineer(){
         },
     ] ).then((data) => {
         const engineer = new Engineer(data.name, data.id, data.email, data.github)
+        newEmployees.push(engineer)
         console.log("Engineer has been created ")
         console.log(engineer)
         createNew()
@@ -120,6 +123,7 @@ function addIntern(){
         },
     ] ).then((data) => {
         const intern = new Intern(data.name, data.id, data.email, data.school)
+        newEmployees.push(intern)
         console.log("Intern has been created ")
         console.log(intern)
         createNew()
@@ -147,6 +151,9 @@ inquirer
 //calls function
 createNew()
 
+const newEmployees=[
+
+]
 
 
 

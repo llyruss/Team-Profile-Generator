@@ -1,4 +1,7 @@
-const html =`
+
+function gnerateHTML(employeeData){
+
+let html =`
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,41 +54,53 @@ const html =`
     <h1>My Team</h1>
     
     <div class="container">
-    <div class="employee">
-        <div class="head">
-        <h3>Name</h3>
-        <h4>Role</h4>
-        </div>
-        <div class="data">
-        <p>id: <span></span></p>
-        <p>email: <span></span></p>
-        <p>office number: <span></span></p>
-        </div>
-    </div>
+    `
+    for(let i=0; i<employeeData.length; i++){
+        if (employeeData[i].getRole()==="Manager"){
+            const managerCard =  `<div class="employee">
+            <div class="head">
+            <h3>${employeeData[i].name}</h3>
+            <h4>Manager</h4>
+            </div>
+            <div class="data">
+            <p>id: <span>${employeeData[i].id}</span></p>
+            <p>email: <span>${employeeData[i].email}</span></p>
+            <p>office number: <span>${employeeData[i].office}</span></p>
+            </div>
+        </div>` 
+            html= html + managerCard
+        }else if(employeeData[i].getRole()==="Engineer"){
+            const engineerCard =  `<div class="employee">
+            <div class="head">
+            <h3>${employeeData[i].name}</h3>
+            <h4>Engineer</h4>
+            </div>
+            <div class="data">
+            <p>id: <span>${employeeData[i].id}</span></p>
+            <p>email: <span>${employeeData[i].email}</span></p>
+            <p>github: <span>${employeeData[i].github}</span></p>
+            </div>
+        </div>` 
+            html= html + engineerCard
+        }else if(employeeData[i].getRole()==="Intern"){
+            const internCard =  `<div class="employee">
+            <div class="head">
+            <h3>${employeeData[i].name}</h3>
+            <h4>Engineer</h4>
+            </div>
+            <div class="data">
+            <p>id: <span>${employeeData[i].id}</span></p>
+            <p>email: <span>${employeeData[i].email}</span></p>
+            <p>school: <span>${employeeData[i].school}</span></p>
+            </div>
+        </div>` 
+            html= html + internCard
+        }
+    }
+    const endString=`</div>
+        </body>
+        </html>`
+    html= html + endString
 
-    <div class="employee">
-        <div class="head">
-        <h3>Name</h3>
-        <h4>Role</h4>
-        </div>
-        <div class="data">
-        <p>id: <span></span></p>
-        <p>email: <span></span></p>
-        <p>github: <span></span></p>
-        </div>
-    </div>
-
-    <div class="employee">
-        <div class="head">
-        <h3>Name</h3>
-        <h4>Role</h4>
-        </div>
-        <div class="data">
-        <p>id: <span></span></p>
-        <p>email: <span></span></p>
-        <p>school: <span></span></p>
-        </div>
-    </div>
-    </div>
-</body>
-</html>`
+    return html
+}
