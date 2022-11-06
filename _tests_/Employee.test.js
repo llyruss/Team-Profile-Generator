@@ -9,17 +9,17 @@ describe("Employee", () =>{
             expect(obj).toBeInstanceOf(Employee)
         });
 
-        it("should create and object with a name prperty",()=>{
+        it("should create and object with a name property",()=>{
             const obj = new Employee("Mabel", "01", "mabel@bagel.com");
             expect ("name" in obj).toEqual(true);
         })
 
-        it("should create and object with an id prperty",()=>{
+        it("should create and object with an id property",()=>{
             const obj = new Employee("Mabel", "01", "mabel@bagel.com");
             expect ("id" in obj).toEqual(true);
         })
 
-        it("should create and object with an email prperty",()=>{
+        it("should create and object with an email property",()=>{
             const obj = new Employee("Mabel", "01", "mabel@bagel.com");
             expect ("email" in obj).toEqual(true);
         })
