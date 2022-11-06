@@ -25,6 +25,7 @@ function addEmployee(){
                 break
             case "Intern":
                 console.log("Intern selected")
+                addIntern()
         }
       })
 }
@@ -136,7 +137,7 @@ inquirer
 })};
 
 createNew()
-//const empoy1 = new Employee(data.name, data.id, data.email)
+
 
 //start "would you like to add a new employee" true/false
 
