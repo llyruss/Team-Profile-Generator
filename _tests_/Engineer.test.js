@@ -23,6 +23,11 @@ describe("Engineer", () =>{
             const obj = new Engineer("Mabel", "01", "mabel@bagel.com", "https://github.com/bagel");
             expect ("email" in obj).toEqual(true);
         })
+
+        it("should create and object with a github property",()=>{
+            const obj = new Engineer("Mabel", "01", "mabel@bagel.com", "https://github.com/bagel");
+            expect ("github" in obj).toEqual(true);
+        })
     })
 
     describe("getGithub", () =>{
