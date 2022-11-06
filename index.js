@@ -3,6 +3,8 @@ const Manager=require("./lib/Manager")
 const Engineer=require("./lib/Engineer")
 const Intern=require("./lib/Intern")
 const inquirer=require("inquirer")
+const fs = require('fs')
+
 
 function addEmployee(){
     inquirer
@@ -54,7 +56,9 @@ function addManager(){
             massage: "What is the employee office number?"
         },
     ] ).then((data) => {
+        const manager= new Manager(data.name, data.id, data.email, data.office)
         console.log("manager has been created ")
+        console.log(manager)
         createNew()
     })
 
@@ -84,7 +88,9 @@ function addEngineer(){
             massage: "What is the employee github?"
         },
     ] ).then((data) => {
+        const engineer = new Engineer(data.name, data.id, data.email, data.github)
         console.log("Engineer has been created ")
+        console.log(engineer)
         createNew()
     })
 }
@@ -113,7 +119,9 @@ function addIntern(){
             massage: "What is the employee school?"
         },
     ] ).then((data) => {
+        const intern = new Intern(data.name, data.id, data.email, data.school)
         console.log("Intern has been created ")
+        console.log(intern)
         createNew()
     })
 }
@@ -136,7 +144,10 @@ inquirer
     }
 })};
 
+//calls function
 createNew()
+
+
 
 
 //start "would you like to add a new employee" true/false
