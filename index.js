@@ -4,6 +4,8 @@ const Engineer=require("./lib/Engineer")
 const Intern=require("./lib/Intern")
 const inquirer=require("inquirer")
 const fs = require('fs')
+const generateHTML=require("./src/generateHTML")
+const newEmployees=[]
 
 
 function addEmployee(){
@@ -18,15 +20,12 @@ function addEmployee(){
       ]).then((data)=>{
         switch(data.role){
             case "Manager": 
-                console.log("manager selected")
                 addManager()
                 break
             case "Engineer": 
-                console.log("engineer selected")
                 addEngineer()
                 break
             case "Intern":
-                console.log("Intern selected")
                 addIntern()
         }
       })
@@ -58,9 +57,8 @@ function addManager(){
     ] ).then((data) => {
         const manager= new Manager(data.name, data.id, data.email, data.office)
         newEmployees.push(manager)
-        console.log(newEmployees)
         console.log("manager has been created ")
-        console.log(manager)
+
         createNew()
     })
 
@@ -92,8 +90,6 @@ function addEngineer(){
     ] ).then((data) => {
         const engineer = new Engineer(data.name, data.id, data.email, data.github)
         newEmployees.push(engineer)
-        console.log("Engineer has been created ")
-        console.log(engineer)
         createNew()
     })
 }
@@ -125,7 +121,6 @@ function addIntern(){
         const intern = new Intern(data.name, data.id, data.email, data.school)
         newEmployees.push(intern)
         console.log("Intern has been created ")
-        console.log(intern)
         createNew()
     })
 }
@@ -145,16 +140,19 @@ inquirer
 
     } else{
         console.log("Goodbye")
+        const generatedHTML = generateHTML(newEmployees)
+        fs.writeFile("./dist/Team-Profile.html", generatedHTML, (err) => {
+            if (err)
+              console.log(err);
+            else {
+              console.log("File written successfully\n");
+            }
+          });
     }
 })};
 
 //calls function
 createNew()
-
-const newEmployees=[
-
-]
-
 
 
 //start "would you like to add a new employee" true/false

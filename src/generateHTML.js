@@ -1,5 +1,5 @@
 
-function gnerateHTML(employeeData){
+function generateHTML(employeeData){
 
 let html =`
 <!DOCTYPE html>
@@ -86,7 +86,7 @@ let html =`
             const internCard =  `<div class="employee">
             <div class="head">
             <h3>${employeeData[i].name}</h3>
-            <h4>Engineer</h4>
+            <h4>Intern</h4>
             </div>
             <div class="data">
             <p>id: <span>${employeeData[i].id}</span></p>
@@ -104,3 +104,5 @@ let html =`
 
     return html
 }
+
+module.exports = generateHTML
