@@ -1,3 +1,4 @@
+// a function to generate our html page as a string
 
 function generateHTML(employeeData){
 
